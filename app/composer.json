@@ -8,14 +8,18 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/flex": "^1.3.1"
-    },
-    "flex-require": {
+        "composer/package-versions-deprecated": "^1.0@dev",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "9999999-dev",
+        "doctrine/doctrine-migrations-bundle": "9999999-dev",
+        "doctrine/orm": "9999999-dev",
+        "phpdocumentor/reflection-docblock": "5.x-dev",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/dotenv": "*",
         "symfony/expression-language": "*",
+        "symfony/flex": "^1.3.1",
         "symfony/form": "*",
         "symfony/framework-bundle": "*",
         "symfony/http-client": "*",
@@ -24,24 +28,30 @@
         "symfony/mime": "*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "*",
-        "symfony/orm-pack": "*",
         "symfony/process": "*",
+        "symfony/property-access": "5.*",
+        "symfony/property-info": "5.*",
+        "symfony/proxy-manager-bridge": "5.*",
         "symfony/security-bundle": "*",
-        "symfony/serializer-pack": "*",
+        "symfony/serializer": "5.*",
         "symfony/string": "*",
         "symfony/translation": "*",
-        "symfony/twig-pack": "*",
+        "symfony/twig-bundle": "9999999-dev",
         "symfony/validator": "*",
         "symfony/web-link": "*",
-        "symfony/yaml": "*"
+        "symfony/yaml": "*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-    },
-    "flex-require-dev": {
-        "symfony/debug-pack": "*",
+        "symfony/browser-kit": "9999999-dev",
+        "symfony/css-selector": "9999999-dev",
+        "symfony/debug-bundle": "9999999-dev",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/phpunit-bridge": "9999999-dev",
+        "symfony/stopwatch": "9999999-dev",
+        "symfony/var-dumper": "9999999-dev",
+        "symfony/web-profiler-bundle": "9999999-dev"
     },
     "config": {
         "optimize-autoloader": true,
@@ -66,8 +76,10 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
-        "auto-scripts": [
-        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
