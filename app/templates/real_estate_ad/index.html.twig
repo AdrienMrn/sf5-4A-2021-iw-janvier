@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des biens à vendre!{% endblock %}
+
+{% block body %}
+    <h1>Liste des biens à vendre</h1>
+
+    <a href="{{ path('real_estate_ad_new') }}">Création d'un bien</a>
+    <br>
+
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Titre</td>
+            <td>Description</td>
+            <td>Prix</td>
+            <td></td>
+        </tr>
+
+        {% for realEstateAd in realEstateAds %}
+            <tr>
+                <td>{{ realEstateAd.id }}</td>
+                <td>{{ realEstateAd.title }}</td>
+                <td>{{ realEstateAd.description }}</td>
+                <td>{{ realEstateAd.price }}</td>
+                <td>
+                    <a href="{{ path('real_estate_ad_show', {'id': realEstateAd.id}) }}">Voir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
