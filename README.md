@@ -14,7 +14,10 @@ docker-compose logs -f [CONTAINER_NAME: php|nginx|db|node]
 ### Base de donnée
 ```
 // Création ou modification d'une entity (table)
+docker-compose exec php bin/console make:controller
 docker-compose exec php bin/console make:entity
+docker-compose exec php bin/console make:form
+docker-compose exec php bin/console make:crud
 
 // Mettre à jour votre base de donnée
 docker-compose exec php bin/console doctrine:schema:update --dump-sql

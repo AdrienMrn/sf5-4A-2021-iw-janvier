@@ -25,6 +25,7 @@
                 <td>{{ realEstateAd.price }}</td>
                 <td>
                     <a href="{{ path('real_estate_ad_show', {'id': realEstateAd.id}) }}">Voir</a>
+                    <a href="{{ path('real_estate_ad_edit', {'id': realEstateAd.id}) }}">Editer</a>
                 </td>
             </tr>
         {% endfor %}
