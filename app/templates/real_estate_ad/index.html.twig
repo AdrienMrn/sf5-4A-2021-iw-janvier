@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ realEstateAd.id }}</td>
                 <td>{{ realEstateAd.title }}</td>
-                <td>{{ realEstateAd.description }}</td>
+                <td>{{ realEstateAd.description|slice(1, 50) }}</td>
                 <td>{{ realEstateAd.price }}</td>
                 <td>
                     <a href="{{ path('real_estate_ad_show', {'id': realEstateAd.id}) }}">Voir</a>

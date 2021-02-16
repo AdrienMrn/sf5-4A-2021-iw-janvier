@@ -8,6 +8,13 @@
     {{ realEstateAd.id }} <br>
     {{ realEstateAd.description }} <br>
     {{ realEstateAd.price }} <br>
+    <br>
+    Tags :
+    {% for tag in realEstateAd.tags %}
+        <div class="chip">
+            <a href="{{ path('tag_show', {'id': tag.id}) }}">{{ tag.name }}</a>
+        </div>
+    {% endfor %}
 
     <br><br>
     <a href="{{ path('real_estate_ad_edit', {'id': realEstateAd.id}) }}">Editer</a> <br>

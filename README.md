@@ -24,6 +24,14 @@ docker-compose exec php bin/console doctrine:schema:update --force
 https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/association-mapping.html
 https://symfony.com/doc/current/doctrine/associations.html
 
+###### Fixtures
+https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+https://github.com/fzaninotto/Faker
+```
+// Installation
+docker-compose exec php composer require --dev orm-fixtures
+```
+
 ### Commandes à connaitre 
 ```
 // Création de fichier via maker bundle

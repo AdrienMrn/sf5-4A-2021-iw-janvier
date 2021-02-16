@@ -3,20 +3,26 @@
 {% block title %}Tag{% endblock %}
 
 {% block body %}
-    <h1>Tag</h1>
+    <h1>Tag {{ tag.name }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tag.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ tag.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        {% for realEstateAd in tag.realEstateAds %}
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ realEstateAd.title }} </span>
+                        <p>{{ realEstateAd.description|slice(1, 50) }} </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('real_estate_ad_show', {'id': realEstateAd.id}) }}">Voir ce bien</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <br>
 
     <a href="{{ path('tag_index') }}">back to list</a>
 
