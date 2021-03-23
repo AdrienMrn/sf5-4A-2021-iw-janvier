@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block title %}Tag{% endblock %}
 
@@ -14,7 +14,7 @@
                         <p>{{ realEstateAd.description|slice(1, 50) }} </p>
                     </div>
                     <div class="card-action">
-                        <a href="{{ path('real_estate_ad_show', {'id': realEstateAd.id}) }}">Voir ce bien</a>
+                        <a href="{{ path('back_real_estate_ad_show', {'slug': realEstateAd.slug}) }}">Voir ce bien</a>
                     </div>
                 </div>
             </div>
@@ -24,9 +24,9 @@
 
     <br>
 
-    <a href="{{ path('tag_index') }}">back to list</a>
+    <a href="{{ path('back_tag_index') }}">back to list</a>
 
-    <a href="{{ path('tag_edit', {'id': tag.id}) }}">edit</a>
+    <a href="{{ path('back_tag_edit', {'id': tag.id}) }}">edit</a>
 
-    {{ include('tag/_delete_form.html.twig') }}
+    {{ include('back/tag/_delete_form.html.twig') }}
 {% endblock %}

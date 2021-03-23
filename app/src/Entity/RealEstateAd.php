@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RealEstateAdRepository::class)
@@ -25,6 +26,9 @@ class RealEstateAd
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci d'indiquer un titre.")
+     * @Assert\Regex("^toto+[a-z]*^", message="Toto est le meilleur exemple !!!")
+     * @Assert\Expression("this.getDescription() === this.getTitle()", message="Title not equal to Description")
      */
     private $title;
 

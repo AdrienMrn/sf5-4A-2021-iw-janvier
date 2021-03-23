@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Back;
 
 use App\Entity\Tag;
 use App\Form\TagType;
@@ -20,7 +20,7 @@ class TagController extends AbstractController
      */
     public function index(TagRepository $tagRepository): Response
     {
-        return $this->render('tag/index.html.twig', [
+        return $this->render('back/tag/index.html.twig', [
             'tags' => $tagRepository->findBy([], ['position' => 'ASC']),
         ]);
     }
@@ -39,10 +39,10 @@ class TagController extends AbstractController
             $entityManager->persist($tag);
             $entityManager->flush();
 
-            return $this->redirectToRoute('tag_index');
+            return $this->redirectToRoute('back_tag_index');
         }
 
-        return $this->render('tag/new.html.twig', [
+        return $this->render('back/tag/new.html.twig', [
             'tag' => $tag,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class TagController extends AbstractController
      */
     public function show(Tag $tag): Response
     {
-        return $this->render('tag/show.html.twig', [
+        return $this->render('back/tag/show.html.twig', [
             'tag' => $tag,
         ]);
     }
@@ -69,10 +69,10 @@ class TagController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('tag_index');
+            return $this->redirectToRoute('back_tag_index');
         }
 
-        return $this->render('tag/edit.html.twig', [
+        return $this->render('back/tag/edit.html.twig', [
             'tag' => $tag,
             'form' => $form->createView(),
         ]);
@@ -89,7 +89,7 @@ class TagController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('tag_index');
+        return $this->redirectToRoute('back_tag_index');
     }
 
     /**
@@ -101,6 +101,6 @@ class TagController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
-        return $this->redirectToRoute('tag_index');
+        return $this->redirectToRoute('back_tag_index');
     }
 }

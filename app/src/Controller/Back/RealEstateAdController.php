@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Back;
 
 use App\Entity\RealEstateAd;
 use App\Form\RealEstateAdType;
@@ -26,7 +26,7 @@ class RealEstateAdController extends AbstractController
      */
     public function index(RealEstateAdRepository $realEstateAdRepository): Response
     {
-        return $this->render('real_estate_ad/index.html.twig', [
+        return $this->render('back/real_estate_ad/index.html.twig', [
             'realEstateAds' => $realEstateAdRepository->findAll(),
         ]);
     }
@@ -47,10 +47,10 @@ class RealEstateAdController extends AbstractController
 
             $this->addFlash('green', 'Annonce immobilière créée avec succès !');
 
-            return $this->redirectToRoute('real_estate_ad_index');
+            return $this->redirectToRoute('back_back_real_estate_ad_index');
         }
 
-        return $this->render('real_estate_ad/new.html.twig', [
+        return $this->render('back/real_estate_ad/new.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -68,12 +68,12 @@ class RealEstateAdController extends AbstractController
 
             $this->addFlash('green', 'Annonce immobilière éditée avec succès !');
 
-            return $this->redirectToRoute('real_estate_ad_show', [
+            return $this->redirectToRoute('back_real_estate_ad_show', [
                 'slug' => $realEstateAd->getSlug()
             ]);
         }
 
-        return $this->render('real_estate_ad/edit.html.twig', [
+        return $this->render('back/real_estate_ad/edit.html.twig', [
             'form' => $form->createView(),
             'realEstateAd' => $realEstateAd
         ]);
@@ -84,7 +84,7 @@ class RealEstateAdController extends AbstractController
      */
     public function show(RealEstateAd $realEstateAd): Response
     {
-        return $this->render('real_estate_ad/show.html.twig', [
+        return $this->render('back/real_estate_ad/show.html.twig', [
             'realEstateAd' => $realEstateAd
         ]);
     }
@@ -106,6 +106,6 @@ class RealEstateAdController extends AbstractController
 
         $this->addFlash('green', 'Annonce immobilière supprimée avec succès !');
 
-        return $this->redirectToRoute('real_estate_ad_index');
+        return $this->redirectToRoute('back_real_estate_ad_index');
     }
 }

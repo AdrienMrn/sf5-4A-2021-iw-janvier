@@ -1,0 +1,23 @@
+{% extends 'base_back.html.twig' %}
+
+{% block title %}Bien {{ realEstateAd.title }}!{% endblock %}
+
+{% block body %}
+    <h1>Bien {{ realEstateAd.title }}</h1>
+
+    {{ realEstateAd.id }} <br>
+    {{ realEstateAd.description }} <br>
+    {{ realEstateAd.price }} <br>
+    <br>
+    Tags :
+    {% for tag in realEstateAd.tags %}
+        <div class="chip">
+            <a href="{{ path('back_tag_show', {'id': tag.id}) }}">{{ tag.name }}</a>
+        </div>
+    {% endfor %}
+
+    <br><br>
+    <a href="{{ path('back_real_estate_ad_edit', {'id': realEstateAd.id}) }}">Editer</a> <br>
+    <a href="{{ path('back_real_estate_ad_delete', {'id': realEstateAd.id, 'token': csrf_token('delete2' ~ realEstateAd.id) }) }}">Supprimer</a> <br>
+    <a href="{{ path('back_real_estate_ad_index') }}">Voir les biens</a>
+{% endblock %}

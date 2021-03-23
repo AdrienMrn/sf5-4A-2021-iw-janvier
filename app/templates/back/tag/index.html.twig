@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block title %}Tag index{% endblock %}
 
@@ -20,12 +20,12 @@
                 <td>{{ tag.id }}</td>
                 <td>{{ tag.name }}</td>
                 <td>
-                    <a href="{{ path('tag_position', {'id': tag.id, 'position': 'up'}) }}">UP</a>
-                    <a href="{{ path('tag_position', {'id': tag.id, 'position': 'down'}) }}">DOWN</a>
+                    <a href="{{ path('back_tag_position', {'id': tag.id, 'position': 'up'}) }}">UP</a>
+                    <a href="{{ path('back_tag_position', {'id': tag.id, 'position': 'down'}) }}">DOWN</a>
                 </td>
                 <td>
-                    <a href="{{ path('tag_show', {'id': tag.id}) }}">show</a>
-                    <a href="{{ path('tag_edit', {'id': tag.id}) }}">edit</a>
+                    <a href="{{ path('back_tag_show', {'id': tag.id}) }}">show</a>
+                    <a href="{{ path('back_tag_edit', {'id': tag.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -36,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('tag_new') }}">Create new</a>
+    <a href="{{ path('back_tag_new') }}">Create new</a>
 {% endblock %}

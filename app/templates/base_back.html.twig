@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {% block stylesheets %}{% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% block javascripts %}{% endblock %}
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{ path('back_default_index') }}">Accueil</a></li>
+            <li><a href="{{ path('back_real_estate_ad_index') }}">Biens</a></li>
+            <li><a href="{{ path('back_tag_index') }}">Tags</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+<script>
+    {% for type, messages in app.flashes %}
+    {% for message in messages %}
+    M.toast({
+        html: '{{ message }}',
+        classes: '{{ type }}'
+    });
+    {% endfor %}
+    {% endfor %}
+</script>
+</body>
+</html>
