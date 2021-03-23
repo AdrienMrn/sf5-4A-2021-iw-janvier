@@ -69,7 +69,7 @@ class RealEstateAdController extends AbstractController
             $this->addFlash('green', 'Annonce immobilière éditée avec succès !');
 
             return $this->redirectToRoute('real_estate_ad_show', [
-                'id' => $realEstateAd->getId()
+                'slug' => $realEstateAd->getSlug()
             ]);
         }
 
