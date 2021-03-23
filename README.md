@@ -36,6 +36,10 @@ docker-compose exec php composer require --dev orm-fixtures
 https://symfony.com/doc/5.3/reference/forms/types.html
 https://symfony.com/doc/current/form/form_themes.html
 
+###### Doctrine Extension Bundle (Gedmo)
+https://symfony.com/doc/current/bundles/StofDoctrineExtensionsBundle/index.html
+https://github.com/doctrine-extensions/DoctrineExtensions/tree/v2.4.x/doc
+
 ### Commandes à connaitre 
 ```
 // Création de fichier via maker bundle
