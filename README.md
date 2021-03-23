@@ -32,6 +32,10 @@ https://github.com/fzaninotto/Faker
 docker-compose exec php composer require --dev orm-fixtures
 ```
 
+###### Formulaire
+https://symfony.com/doc/5.3/reference/forms/types.html
+https://symfony.com/doc/current/form/form_themes.html
+
 ### Commandes à connaitre 
 ```
 // Création de fichier via maker bundle

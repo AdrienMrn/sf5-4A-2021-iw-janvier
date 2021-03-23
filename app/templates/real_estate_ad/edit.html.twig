@@ -5,7 +5,16 @@
 {% block body %}
     <h1>Modification du bien {{ realEstateAd.title }} !</h1>
 
+    {# form(form) #}
+
     {{ form_start(form) }}
+        {# form_row(form.title) #}
+
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+        {{ form_errors(form.title) }}
+        {{ form_help(form.title) }}
+
         {{ form_rest(form) }}
         <button type="submit">Modifier</button>
     {{ form_end(form) }}
