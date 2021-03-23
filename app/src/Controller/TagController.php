@@ -21,7 +21,7 @@ class TagController extends AbstractController
     public function index(TagRepository $tagRepository): Response
     {
         return $this->render('tag/index.html.twig', [
-            'tags' => $tagRepository->findAll(),
+            'tags' => $tagRepository->findBy([], ['position' => 'ASC']),
         ]);
     }
 
@@ -88,6 +88,18 @@ class TagController extends AbstractController
             $entityManager->remove($tag);
             $entityManager->flush();
         }
+
+        return $this->redirectToRoute('tag_index');
+    }
+
+    /**
+     * @Route("/{id}/{position}", name="position", methods={"GET"}, requirements={"position": "up|down"})
+     */
+    public function position(Tag $tag, $position)
+    {
+        $tag->setPosition($position === 'up' ? $tag->getPosition() + 1 : $tag->getPosition() - 1);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
 
         return $this->redirectToRoute('tag_index');
     }

@@ -80,7 +80,7 @@ class RealEstateAdController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
+     * @Route("/{slug}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
     public function show(RealEstateAd $realEstateAd): Response
     {

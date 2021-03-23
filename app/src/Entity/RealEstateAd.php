@@ -6,6 +6,7 @@ use App\Repository\RealEstateAdRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=RealEstateAdRepository::class)
@@ -33,6 +34,12 @@ class RealEstateAd
      * @ORM\Column(type="float")
      */
     private $price;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=255, unique=true, nullable=true)
+     */
+    private $slug;
 
     /**
      * @ORM\OneToMany(targetEntity=Review::class, mappedBy="realEstateAd")
@@ -88,6 +95,24 @@ class RealEstateAd
     {
         $this->price = $price;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     * @return RealEstateAd
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
         return $this;
     }
 

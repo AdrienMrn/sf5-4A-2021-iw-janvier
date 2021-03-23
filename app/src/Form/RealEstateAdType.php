@@ -26,31 +26,11 @@ class RealEstateAdType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre'
             ])
-
-            ->add('password', RepeatedType::class, [
-                'label' => 'PWD',
-                'mapped' => false,
-                'type' => PasswordType::class,
-                'first_options' => [
-                    'label' => 'Votre pass'
-                ],
-                'second_options' => [
-                    'label' => 'Répéter votre pass'
-                ]
-            ])
-
             ->add('description', TextareaType::class, [
                 'label' => 'Description'
             ])
             ->add('price', NumberType::class, [
                 'label' => 'Prix de votre bien'
-            ])
-            ->add('gender', ChoiceType::class, [
-                'mapped' => false,
-                'choices' => [
-                    'Mec' => 'm',
-                    'Dame' => 'f'
-                ],
             ])
             ->add('tags', EntityType::class, [
                 'class' => Tag::class,

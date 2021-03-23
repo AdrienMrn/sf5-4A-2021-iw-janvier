@@ -16,6 +16,7 @@
         "fzaninotto/faker": "1.9.x-dev",
         "phpdocumentor/reflection-docblock": "5.x-dev",
         "sensio/framework-extra-bundle": "^5.1",
+        "stof/doctrine-extensions-bundle": "1.6.x-dev",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/dotenv": "*",
