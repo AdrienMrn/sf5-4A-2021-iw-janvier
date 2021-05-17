@@ -5,6 +5,8 @@ namespace App\Controller\Back;
 use App\Entity\RealEstateAd;
 use App\Form\RealEstateAdType;
 use App\Repository\RealEstateAdRepository;
+use App\Security\RealEstateAdVoter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,7 +49,7 @@ class RealEstateAdController extends AbstractController
 
             $this->addFlash('green', 'Annonce immobilière créée avec succès !');
 
-            return $this->redirectToRoute('back_back_real_estate_ad_index');
+            return $this->redirectToRoute('back_real_estate_ad_index');
         }
 
         return $this->render('back/real_estate_ad/new.html.twig', [
@@ -57,9 +59,13 @@ class RealEstateAdController extends AbstractController
 
     /**
      * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"GET", "POST"})
+     * @Security("is_granted('edit', realEstateAd)")
      */
     public function edit(Request $request, RealEstateAd $realEstateAd): Response
     {
+        // Identique avec le @Security en annotation
+        //$this->denyAccessUnlessGranted(RealEstateAdVoter::EDIT, $realEstateAd);
+
         $form = $this->createForm(RealEstateAdType::class, $realEstateAd);
 
         $form->handleRequest($request);
@@ -96,6 +102,8 @@ class RealEstateAdController extends AbstractController
      */
     public function delete(RealEstateAd $realEstateAd, string $token): Response
     {
+        $this->denyAccessUnlessGranted(RealEstateAdVoter::DELETE, $realEstateAd);
+
         if (!$this->isCsrfTokenValid('delete' . $realEstateAd->getId(), $token)) {
             throw new Exception('Invalid CSRF Token');
         }

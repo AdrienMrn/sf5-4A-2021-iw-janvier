@@ -27,8 +27,6 @@ class RealEstateAd
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci d'indiquer un titre.")
-     * @Assert\Regex("^toto+[a-z]*^", message="Toto est le meilleur exemple !!!")
-     * @Assert\Expression("this.getDescription() === this.getTitle()", message="Title not equal to Description")
      */
     private $title;
 
@@ -47,6 +45,12 @@ class RealEstateAd
      * @ORM\Column(length=255, unique=true, nullable=true)
      */
     private $slug;
+
+    /**
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $owner;
 
     /**
      * @ORM\OneToMany(targetEntity=Review::class, mappedBy="realEstateAd")
@@ -120,6 +124,24 @@ class RealEstateAd
     public function setSlug($slug)
     {
         $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getOwner():? User
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param User $owner
+     * @return RealEstateAd
+     */
+    public function setOwner(User $owner): self
+    {
+        $this->owner = $owner;
         return $this;
     }
 
