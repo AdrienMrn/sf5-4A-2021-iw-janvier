@@ -11,12 +11,18 @@
 </head>
 <body>
 <nav>
+    <ul id="dropdownTags" class="dropdown-content">
+        {% for tag in getTags() %}
+        <li><a href="{{ path('back_tag_show', {'id': tag.id}) }}">{{ tag.name }}</a></li>
+        {% endfor %}
+    </ul>
+
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{{ path('back_default_index') }}">Accueil</a></li>
             <li><a href="{{ path('back_real_estate_ad_index') }}">Biens</a></li>
-            <li><a href="{{ path('back_tag_index') }}">Tags</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdownTags">Tags</a></li>
         </ul>
     </div>
 </nav>
@@ -34,6 +40,11 @@
     });
     {% endfor %}
     {% endfor %}
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
+    });
 </script>
 </body>
 </html>

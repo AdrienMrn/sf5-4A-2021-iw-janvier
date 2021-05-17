@@ -57,6 +57,9 @@ https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/s
 ###### Listener doctrine
 https://symfony.com/doc/current/doctrine/events.html#doctrine-lifecycle-subscribers
 
+###### Custom twig function/filter
+https://symfony.com/doc/current/templating/twig_extension.html
+
 ### Commandes à connaitre 
 ```
 // Création de fichier via maker bundle
