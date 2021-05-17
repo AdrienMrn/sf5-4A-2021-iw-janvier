@@ -50,6 +50,13 @@ https://symfony.com/doc/current/form/form_themes.html
 https://symfony.com/doc/current/bundles/StofDoctrineExtensionsBundle/index.html
 https://github.com/doctrine-extensions/DoctrineExtensions/tree/v2.4.x/doc
 
+###### Voter 
+https://symfony.com/doc/current/security/voters.html
+https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/security.html
+
+###### Listener doctrine
+https://symfony.com/doc/current/doctrine/events.html#doctrine-lifecycle-subscribers
+
 ### Commandes à connaitre 
 ```
 // Création de fichier via maker bundle
