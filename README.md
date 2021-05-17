@@ -24,6 +24,16 @@ docker-compose exec php bin/console doctrine:schema:update --force
 https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/association-mapping.html
 https://symfony.com/doc/current/doctrine/associations.html
 
+###### Authentification
+```
+// Création de la gestion d'auth
+docker-compose exec php bin/console make:user
+docker-compose exec php bin/console make:auth
+
+// Génération d'un mot de passe hashé
+docker-compose exec php bin/console security:hash-password
+```
+
 ###### Fixtures
 https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
 https://github.com/fzaninotto/Faker
